@@ -31,7 +31,7 @@ if(theEvent.controller().name()=="                                          Logi
       p.searchName();
       b.hide();
       t.hide();
-      menu.temp = 1;
+      menu.temp = 3;
       universal = lvl;
       
     }
