@@ -1,6 +1,10 @@
 class MainScreen implements Display{
 
 PImage backImg,extNorm,hsNorm,ldNorm,stNorm,ext,hs,ld,st;
+PImage sun;
+
+float allx = 310;
+float allx2 = allx+135;
 
 MainScreen(){
  backImg = loadImage("background.png");
@@ -12,26 +16,32 @@ MainScreen(){
  ld = loadImage("Loading.png");
  hs = loadImage("hover.png");
  ext = loadImage("exit.png");
+ sun = loadImage("data/Various/sun.png");
 }
 
 void display(){
- image(stNorm, 250,50);
- image(ldNorm, 250,110);
- image(hsNorm, 250,170);
- image(extNorm, 250,230);
+  rotate(PI/10);
+ image(sun,-300,-300);
+ rotate(-PI/10);
+ 
+ image(stNorm, allx,50);
+ image(ldNorm, allx,130);
+ image(hsNorm, allx,210);
+ image(extNorm, allx,290);
+ 
  
  //Display Hover state
- if(menu.mouseCheck(250,50,395,100)){
- image(st, 250,50);
+ if(menu.mouseCheck(allx,50,allx2,100)){
+ image(st, allx,50);
  }
- if(menu.mouseCheck(250,110,395,160)){
- image(ld, 250,110);
+ if(menu.mouseCheck(allx,130,allx2,190)){
+ image(ld, allx,130);
  }
- if(menu.mouseCheck(250,170,395,220)){
- image(hs, 250,170);
+ if(menu.mouseCheck(allx,210,allx2,280)){
+ image(hs, allx,210);
  }
- if(menu.mouseCheck(250,230,395,270)){
- image(ext, 250,230);
+ if(menu.mouseCheck(allx,290,allx2,370)){
+ image(ext, allx,290);
  }
 
 }
