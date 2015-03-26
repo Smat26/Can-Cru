@@ -1,6 +1,8 @@
+
 Display universal;
 MainScreen main;
 Player p;
+Minim minim;
 Menu menu;
 Level lvl;
 Login login;
@@ -10,6 +12,7 @@ controlP5.Textfield t;
 int stoneSize=25;
 void setup() {
    controlP5 = new ControlP5(this);
+   minim = new Minim(this);
    menu = new Menu(); // Goto menus constructor for any changes
 
 }

@@ -44,7 +44,7 @@ class Menu {
   if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d)){
           temp = 1;
     }
-  if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d)){
+  if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp != 1){
     
           temp = 2;
     }  
