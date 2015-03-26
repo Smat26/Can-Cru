@@ -1,14 +1,15 @@
 class Level implements Display {
   ArrayList Stones=new ArrayList();
-  int xdimension=32;
+  int xdimension=25;
   int ydimension=14;
   int NumCols = 2;
   int curX, curY, target;
   int lv=0; 
+  int xGap = 4; //margin of the stones from the left
   boolean playFlag, winFlag;
   PImage bg= loadImage("data/Various/bg3.png");
   PImage[][] pic = new PImage[2][4];
-  int change = 0; //for cycling through the theme;
+  int change = 1; //for cycling through the theme;
   Level() {
 
     imageMode(CORNER);
@@ -105,9 +106,10 @@ class Level implements Display {
 
 
   void setStone() {
+    //code to check which level is it, and then change rows, columns and colours.
     for (int i =0; i<xdimension; i++) {
       for (int j=0; j< (ydimension); j++) {
-        Stones.add(new Stone(i, j-ydimension, (int)random(NumCols), stoneSize, Stones));
+        Stones.add(new Stone(i+xGap, j-ydimension, (int)random(NumCols), stoneSize, Stones));
       }
     }
   }
@@ -122,10 +124,10 @@ class Level implements Display {
   void replay() {
     deleteStone();
     setStone();
+    //code for level to increment
   }
 
   void click() {
-
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {
@@ -142,6 +144,7 @@ class Level implements Display {
     } else {
       playFlag=true;
     }
+    //code to check if one stone remain.
   }
 }
 
