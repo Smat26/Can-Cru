@@ -1,6 +1,6 @@
 class Player{
 
-    String name;
+    String name = "Anonymous";
     int score;
     String []load;
     String [] list;
