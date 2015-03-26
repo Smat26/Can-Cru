@@ -1,4 +1,4 @@
-
+AudioSystem a;
 Display universal;
 MainScreen main;
 Player p;
