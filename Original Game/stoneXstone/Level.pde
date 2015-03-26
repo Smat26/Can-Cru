@@ -6,6 +6,7 @@ class Level implements Display {
   int curX, curY, target;
   int lv=0; 
   boolean playFlag, winFlag;
+  PImage bg= loadImage("data/Various/bg3.png");
   PImage[][] pic = new PImage[2][4];
   int change = 0; //for cycling through the theme;
   Level() {
@@ -42,6 +43,7 @@ class Level implements Display {
   void display() {
 
     background(0);
+    image(bg,0,0);
     noStroke();
     if (playFlag) {    
       curX=((int)(mouseX/stoneSize));
@@ -123,7 +125,7 @@ class Level implements Display {
   }
 
   void click() {
-    setTheme();
+
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {
