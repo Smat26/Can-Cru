@@ -11,6 +11,8 @@ class Menu {
     smooth();
     lvl = new Level();
     main = new MainScreen();
+    login = new Login();
+    login.startup();
     universal = main;
     lvl.loadImages(); //loads images of themes   
      p = new Player();
@@ -39,10 +41,13 @@ class Menu {
   
 // This function determines the button which is clicked and dynamically displays the appropriate screen
   void clickEvent(){
-  if (mouseCheck(360, 210, 610, 230)){
+  if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d)){
           temp = 1;
     }
+  if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d)){
     
+          temp = 2;
+    }  
     
   //=========================//  
     if(temp == 0){
@@ -51,7 +56,10 @@ class Menu {
     if(temp == 1){
     universal = lvl;
     }
-    
+    if(temp == 2){
+      login.initialize();
+    universal = login;
+    }
     //======================//
   
   }

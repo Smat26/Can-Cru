@@ -29,6 +29,7 @@ if(theEvent.controller().name()=="                                          Logi
       b.hide();
       t.hide();
       menu.temp = 1;
+      universal = lvl;
       
     }
 
