@@ -9,8 +9,11 @@ class Menu {
     size(640, 460); 
     noStroke(); 
     smooth();
+              
     lvl = new Level();
     main = new MainScreen();
+    login = new Login();
+    login.startup();
     universal = main;
     lvl.loadImages(); //loads images of themes   
      p = new Player();
@@ -18,8 +21,8 @@ class Menu {
   }
 
   void show() {
-    println("MouseX: "+ mouseX);
-    println("MouseY: "+ mouseY);
+   // println("MouseX: "+ mouseX);
+    //println("MouseY: "+ mouseY);
   
     universal.display();
     
@@ -39,10 +42,12 @@ class Menu {
   
 // This function determines the button which is clicked and dynamically displays the appropriate screen
   void clickEvent(){
-  if (mouseCheck(360, 210, 610, 230)){
+  if (mouseCheck(250,50,395,100)){
           temp = 1;
     }
-    
+  if (mouseCheck(250,110,395,160)){
+          temp = 2;
+    }  
     
   //=========================//  
     if(temp == 0){
@@ -51,7 +56,10 @@ class Menu {
     if(temp == 1){
     universal = lvl;
     }
-    
+    if(temp == 2){
+    universal = login;
+    login.initialize();
+    }
     //======================//
   
   }

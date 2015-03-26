@@ -6,8 +6,7 @@ class Player{
     String [] list;
     
     void saveGame(){
-    
-    load = loadStrings("leaderboard.txt");
+    loadGame();
     list = new String[load.length+2];
     for(int i=0;i<load.length;i++){
     list[i] = load[i];
@@ -19,7 +18,7 @@ class Player{
     
         
     void searchName(){
-    load = loadStrings("leaderboard.txt");
+    loadGame();
     for(int i=0;i<load.length;i+=2){
     if(load[i].trim().equals(name)){
     println("Found one");
@@ -31,16 +30,7 @@ class Player{
     println("Not found");
     }
     
-    //=====Farigh Functions============//
-    void loadScore(){
+    void loadGame(){
     load = loadStrings("leaderboard.txt");
-    
-    p.score = Integer.parseInt(load[0]);
     }
-    void saveScore(){
-    load[0] = Integer.toString(p.score);
-    saveStrings("leaderboard.txt", load);
-    }
-  //=======================================//
-
 }
