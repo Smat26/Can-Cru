@@ -15,6 +15,7 @@ class Menu {
     noCursor();
     cursor = loadImage("/data/Various/whitecursor.png");
     lvl = new Level();
+    over = new GameOver();
     main = new MainScreen();
     universal = main;
     lvl.loadImages(); //loads images of themes   
@@ -104,6 +105,9 @@ class Menu {
     }
     if(tempPop == 1){
     components = exit;
+    }
+    if(temp == 5){
+    universal = over;
     }
     
     //======================//

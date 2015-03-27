@@ -201,6 +201,10 @@ class Level implements Display {
         }
         if (!wrongclick) {
          strike ++;
+         if(strike>=5){
+         menu.temp = 5;
+         lv=0;
+         }
          println("STRIKE!!"+ strike);
          }
       } else {
