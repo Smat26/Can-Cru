@@ -4,7 +4,7 @@ class Level implements Display {
   int ydimension=10;
   int NumCols = 7;
   int curX, curY, target;
-  int lv=7; 
+  int lv=0; 
   int xGap = 1; //margin of the stones from the left
   boolean playFlag, winFlag;
   PImage bg= loadImage("data/Various/bg3.png");
@@ -137,7 +137,7 @@ class Level implements Display {
       text("Score:", 80, 550);
       text(p.score, 170, 550);
       text("Level", 280, 550);
-      text(lv, 370, 550);
+      text(lv+1, 370, 550);
 
       if (Stones.size()<=0) {
         winFlag=true;

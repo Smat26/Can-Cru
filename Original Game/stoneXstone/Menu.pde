@@ -26,11 +26,9 @@ class Menu {
      a = new AudioSystem("song.mp3");
      a.loopIt();
          lvl.setTheme();
-<<<<<<< HEAD
+
          //p.loadGameState();
-=======
-        // p.loadGameState();
->>>>>>> origin/master
+
      //============================================
   }
 
@@ -73,8 +71,8 @@ class Menu {
           temp = 3;
           }
     }
-<<<<<<< HEAD
-=======
+
+
     
     if (mouseCheck(110, 600, 176, 670) && (temp == -1)){
     if(audio==1){
@@ -90,7 +88,7 @@ class Menu {
   
   
   
->>>>>>> origin/master
+
   if (mouseCheck(main.allx, 290+main.d, main.allx2, 370+main.d) && temp == 0){
     
           tempPop = 1;
