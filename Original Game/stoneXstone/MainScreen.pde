@@ -7,6 +7,7 @@ class MainScreen implements Display {
   float allx2 = allx+135;
   float y=0;
   float d=250; //control Y coordinate of the whole menu
+  float tintalpha = 0;
   MainScreen() {
     backImg = loadImage("background.png");
     extNorm = loadImage("exit_normal.png");
@@ -21,11 +22,17 @@ class MainScreen implements Display {
     farm = loadImage("data/Various/bg2.png");
     animatch = loadImage("data/Various/animatch.png");
     imageMode(CORNER);
+    background(0);
   }
 
   void display() {
+
     pushMatrix();
-    image(animatch, 100, 00);
+    tint(255, tintalpha);
+
+if(tintalpha<255){
+    tintalpha+=0.15;
+}
     y+=0.01;
     image(farm, map(noise(y*0.5+mouseX*0.001), 0, 1, -1000, 100), map(noise(y*0.5+mouseY*0.001), 0, 1, -500, 25));
 
@@ -36,6 +43,7 @@ class MainScreen implements Display {
     // scale(0.5);
 
     rotate(-(PI/20+y));
+    noTint();
     popMatrix();
     
     image(animatch, -190, -350);
