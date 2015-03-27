@@ -1,4 +1,6 @@
 AudioSystem a;
+GameOver over;
+TextBox t; 
 Exit exit;
 Blank blank;
 LevelUI ui;
@@ -26,5 +28,10 @@ void draw() {
 void mouseClicked() {
  
   menu.clickEvent();
+}
+void keyPressed(){
+if(menu.temp == 5){
+t.listen();
+}
 }
 
