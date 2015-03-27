@@ -25,7 +25,7 @@ class Menu {
      a = new AudioSystem("song.mp3");
      a.loopIt();
          lvl.setTheme();
-         p.loadGameState();
+         //p.loadGameState();
      //============================================
   }
 
@@ -52,9 +52,6 @@ class Menu {
   
 // This function determines the button which is clicked and dynamically displays the appropriate screen
   void clickEvent(){
-    
-    if(popCheck()){  return;}  //Do not remove this, it blocks the behind screen for clicking when a popup is open
-    
   if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
           temp = 3;
     }
@@ -62,8 +59,6 @@ class Menu {
     
           temp = 3;
     }
-    //====================================================//
-    //This is the toggle for slider
   if (mouseCheck(width-50, 0, width, 100) && (temp == 3 || temp == -1)){
           if(temp == 3){
           temp = -1;
@@ -72,20 +67,11 @@ class Menu {
           temp = 3;
           }
     }
-    //===================================================//
-  
-  
-  
   if (mouseCheck(main.allx, 290+main.d, main.allx2, 370+main.d) && temp == 0){
     
           tempPop = 1;
     }  
     
-    
-    
-    
-  //==========================//  
-   //  Checking               // 
   //=========================//  
     if(temp == 0){
     universal = main;   
@@ -100,25 +86,5 @@ class Menu {
     
     //======================//
   
-  }
-  
-  //This is the popUp exit controller
-  
-  boolean popCheck(){
-  
-    if( tempPop != -1)
-   {
-     if(mouseCheck(240, 360, 330, 450)){
-       exit();  
-    }else{
-    temp = 0;
-    tempPop = -1;
-    components = blank;
-    }
-     return true;
-   }
-   
-   
-  return false; 
   }
 }

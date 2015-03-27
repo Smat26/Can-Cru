@@ -10,7 +10,7 @@ Minim minim;
 Menu menu;
 Level lvl;
 
-int stoneSize=40;
+int stoneSize=50;
 void setup() {
    minim = new Minim(this);
    menu = new Menu(); // Goto menus constructor for any changes

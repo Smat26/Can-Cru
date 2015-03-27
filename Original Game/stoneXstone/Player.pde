@@ -4,11 +4,12 @@ class Player {
 
   int score;
   ArrayList state =new ArrayList();
-  String[] x = new String[lvl.Stones.size()];
-  String[] y = new String[lvl.Stones.size()];
-  String[] c = new String[lvl.Stones.size()];
-  String[] sz = new String[lvl.Stones.size()];
+  String[] x = new String[140];
+  String[] y = new String[140];
+  String[] c = new String[140];
+  String[] sz = new String[140];
   String [] list;
+  String[] a= new String[2];
 
 
 
@@ -25,6 +26,8 @@ class Player {
     saveStrings("/data/text/y.txt", y);
     saveStrings("/data/text/c.txt", c);
     saveStrings("/data/text/sz.txt", sz);
+    String[] a ={Integer.toString(score), Integer.toString(lvl.lv)};
+    saveStrings("/data/text/score.txt",a);
     println("SAVED!!");
   }
   void loadGameState() {
@@ -32,6 +35,9 @@ class Player {
     y= loadStrings("/data/text/y.txt");
     c= loadStrings("/data/text/c.txt");
     sz= loadStrings("/data/text/sz.txt");
+    a = loadStrings("/data/text/score.txt");
+    score = Integer.parseInt(a[0]);
+    lvl.lv = Integer.parseInt(a[1]);
     //state = null;
     //
     for (int i=0; i< x.length; i++) {

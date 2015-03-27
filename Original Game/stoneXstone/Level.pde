@@ -1,11 +1,11 @@
 class Level implements Display {
   ArrayList Stones=new ArrayList();
-  int xdimension=10;
-  int ydimension=12;
-  int NumCols = 2;
+  int xdimension=14;
+  int ydimension=10;
+  int NumCols = 7;
   int curX, curY, target;
-  int lv=0; 
-  int xGap = 4; //margin of the stones from the left
+  int lv=7; 
+  int xGap = 1; //margin of the stones from the left
   boolean playFlag, winFlag;
   PImage bg= loadImage("data/Various/bg3.png");
   PImage[][] pic = new PImage[3][5];
@@ -16,6 +16,40 @@ class Level implements Display {
   float y = 0; //This for settings rotation
   Boolean wrongclick; //to check if click is wrong
   int strike=0; // number of wrong clicks
+  int[][] difficult = {
+    {
+      5, 10, 5, 2
+    }
+    , 
+    {
+      7, 10, 4, 2
+    }
+    , 
+    {
+      10, 10, 3, 2
+    }
+    , 
+    {
+      10, 10, 3, 3
+    }
+    , 
+    {
+      12, 10, 2, 3
+    }
+    , 
+    {
+      14, 10, 1, 3
+    }
+    , 
+    {
+      14, 10, 1, 4
+    }
+    , 
+    {
+      14, 10, 1, 5
+    }
+  };
+
   Level() {
 
     imageMode(CORNER);
@@ -129,6 +163,13 @@ class Level implements Display {
 
   void setStone() {
     //code to check which level is it, and then change rows, columns and colours.
+
+    xdimension= difficult[lv][0];
+    ydimension= difficult[lv][1];
+    xGap = difficult[lv][2];
+    NumCols = difficult[lv][3];
+
+
     for (int i =0; i<xdimension; i++) {
       for (int j=0; j< (ydimension); j++) {
         Stones.add(new Stone(i+xGap, j+10-ydimension, (int)random(NumCols), stoneSize, Stones));
@@ -144,30 +185,27 @@ class Level implements Display {
   }
 
   void replay() {
+    lv++;
     deleteStone();
     setStone();
     //code for level to increment
   }
 
   void click() {
-p.saveGameState();
+    p.saveGameState();
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {
           Stone st = (Stone)Stones.get(target);
           wrongclick = st.checkSame(target);
         }
-
-       /* if (!wrongclick) {
-          strike ++;
-          println("STRIKE!!");
-        }*/
+        /* if (!wrongclick) {
+         strike ++;
+         println("STRIKE!!");
+         }*/
       } else {
         if (lv<5) {
           lv++;
-          if(NumCols<5){
-          NumCols++;
-          }
         }
         winFlag=false;
         replay();
