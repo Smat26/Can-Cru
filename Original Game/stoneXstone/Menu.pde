@@ -35,8 +35,8 @@ class Menu {
 
   void show() {
     //The line below messed up the console output :(
-    //println("MouseX: "+ mouseX);
-    //println("MouseY: "+ mouseY);
+    println("MouseX: "+ mouseX);
+    println("MouseY: "+ mouseY);
   
     universal.display();
     components.display();
@@ -60,6 +60,7 @@ class Menu {
     
     if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
    lvl.replay();
+   
           temp = 3;
     }
   if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp == 0){
@@ -75,7 +76,11 @@ class Menu {
           }
     }
 
-
+    if(mouseCheck(405, 600, 475, 650) && temp == 5){
+      lvl.lv = 0;
+      temp = 0;
+      return;
+    }
     
     if (mouseCheck(110, 600, 176, 670) && (temp == -1)){
     if(audio==1){

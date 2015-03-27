@@ -2,7 +2,7 @@ class Level implements Display {
   ArrayList Stones=new ArrayList();
   int xdimension=14;
   int ydimension=10;
-  int NumCols = 7;
+  int NumCols = 0;
   int curX, curY, target;
   int lv=0; 
   int xGap = 1; //margin of the stones from the left
@@ -163,7 +163,7 @@ class Level implements Display {
 
   void setStone() {
     //code to check which level is it, and then change rows, columns and colours.
-
+    if(lv>=7) lv = 0;
     xdimension= difficult[lv][0];
     ydimension= difficult[lv][1];
     xGap = difficult[lv][2];
@@ -202,8 +202,9 @@ class Level implements Display {
         if (!wrongclick) {
          strike ++;
          if(strike>=5){
-         menu.temp = 5;
-         lv=0;
+          lv=0;
+          menu.temp = 5;
+         
          }
          println("STRIKE!!"+ strike);
          }
