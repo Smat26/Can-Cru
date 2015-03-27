@@ -2,7 +2,8 @@
 //Menu should have following buttons
 class Menu {
   
-  int temp = 0; 
+  int temp = 0;
+ int tempPop = -1; 
 
   Menu() {
     //======================Startup===========================/    
@@ -27,8 +28,8 @@ class Menu {
   }
 
   void show() {
-   // println("MouseX: "+ mouseX);
-  //  println("MouseY: "+ mouseY);
+    println("MouseX: "+ mouseX);
+    println("MouseY: "+ mouseY);
   
     universal.display();
     components.display();
@@ -65,7 +66,7 @@ class Menu {
     }
   if (mouseCheck(main.allx, 290+main.d, main.allx2, 370+main.d) && temp == 0){
     
-          temp = -5;
+          tempPop = 1;
     }  
     
   //=========================//  
@@ -79,7 +80,7 @@ class Menu {
     if(temp == 3 || temp == -1){
     universal = lvl;
     }
-    if(temp == -5){
+    if(tempPop == 1){
     components = exit;
     }
     
