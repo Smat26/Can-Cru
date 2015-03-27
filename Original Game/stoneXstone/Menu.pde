@@ -57,7 +57,7 @@ class Menu {
 // This function determines the button which is clicked and dynamically displays the appropriate screen
   void clickEvent(){
   if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
-   //lvl.replay();
+   lvl.replay();
           temp = 3;
     }
   if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp == 0){
