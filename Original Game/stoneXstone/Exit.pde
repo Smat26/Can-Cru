@@ -10,9 +10,11 @@ class Exit implements Display{
   
   }
   void display(){
-  fill(0,0,0,80);
+  fill(0,0,0,85);
   rect(0,0,width,height);
   imageMode(CENTER);
+  
+  
   if(menu.mouseCheck(240, 360, 330, 450)){
     println("yes");
     image(ext_y, width/2, height/2);  
