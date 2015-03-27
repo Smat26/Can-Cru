@@ -34,8 +34,8 @@ class Menu {
 
   void show() {
     //The line below messed up the console output :(
-    println("MouseX: "+ mouseX);
-    println("MouseY: "+ mouseY);
+    //println("MouseX: "+ mouseX);
+    //println("MouseY: "+ mouseY);
   
     universal.display();
     components.display();

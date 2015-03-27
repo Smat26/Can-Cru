@@ -14,7 +14,7 @@ class Level implements Display {
   PImage config;
   PImage panel = loadImage("data/Various/panel.png");
   float y = 0; //This for settings rotation
-  Boolean wrongclick; //to check if click is wrong
+  Boolean wrongclick=false; //to check if click is wrong
   int strike=0; // number of wrong clicks
   int[][] difficult = {
     {
@@ -199,10 +199,10 @@ class Level implements Display {
           Stone st = (Stone)Stones.get(target);
           wrongclick = st.checkSame(target);
         }
-        /* if (!wrongclick) {
+        if (!wrongclick) {
          strike ++;
-         println("STRIKE!!");
-         }*/
+         println("STRIKE!!"+ strike);
+         }
       } else {
         if (lv<5) {
           lv++;
