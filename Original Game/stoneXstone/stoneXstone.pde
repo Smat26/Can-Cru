@@ -20,7 +20,7 @@ void draw() {
 
    menu.show();
    //for custom cursor
-  //image(menu.cursor,mouseX,mouseY); 
+  image(menu.cursor,mouseX,mouseY); 
    
 }
 void mouseClicked() {
