@@ -2,7 +2,7 @@ class Level implements Display {
   ArrayList Stones=new ArrayList();
   int xdimension=10;
   int ydimension=12;
-  int NumCols = 5;
+  int NumCols = 2;
   int curX, curY, target;
   int lv=0; 
   int xGap = 4; //margin of the stones from the left
@@ -157,13 +157,17 @@ class Level implements Display {
           Stone st = (Stone)Stones.get(target);
           wrongclick = st.checkSame(target);
         }
+       /*
         if (!wrongclick) {
           strike ++;
           println("STRIKE!!");
-        }
+        }*/
       } else {
         if (lv<5) {
           lv++;
+          if(NumCols<5){
+          NumCols++;
+          }
         }
         winFlag=false;
         replay();
