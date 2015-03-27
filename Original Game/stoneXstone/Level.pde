@@ -128,11 +128,9 @@ class Level implements Display {
   }
 
   void click() {
-<<<<<<< HEAD
+
     p.saveGame();
-    setTheme();
-=======
->>>>>>> origin/master
+
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {
