@@ -157,12 +157,8 @@ p.saveGameState();
           Stone st = (Stone)Stones.get(target);
           wrongclick = st.checkSame(target);
         }
-<<<<<<< HEAD
-       /*
-        if (!wrongclick) {
-=======
+
        /* if (!wrongclick) {
->>>>>>> origin/master
           strike ++;
           println("STRIKE!!");
         }*/
