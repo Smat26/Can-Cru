@@ -15,6 +15,9 @@ class Menu {
     login.startup();
     universal = main;
     lvl.loadImages(); //loads images of themes   
+    exit = new Exit();
+    blank = new Blank();
+    components = blank;
      p = new Player();
      ui = new LevelUI();
      a = new AudioSystem("song.mp3");
@@ -24,11 +27,11 @@ class Menu {
   }
 
   void show() {
-    println("MouseX: "+ mouseX);
-    println("MouseY: "+ mouseY);
+   // println("MouseX: "+ mouseX);
+  //  println("MouseY: "+ mouseY);
   
     universal.display();
-    
+    components.display();
     
 }
  
@@ -59,6 +62,10 @@ class Menu {
           else{
           temp = 3;
           }
+    }
+  if (mouseCheck(main.allx, 290+main.d, main.allx2, 370+main.d) && temp == 0){
+    
+          temp = -5;
     }  
     
   //=========================//  
@@ -72,6 +79,10 @@ class Menu {
     if(temp == 3 || temp == -1){
     universal = lvl;
     }
+    if(temp == -5){
+    components = exit;
+    }
+    
     //======================//
   
   }

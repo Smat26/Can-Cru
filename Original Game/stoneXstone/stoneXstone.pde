@@ -1,6 +1,9 @@
 AudioSystem a;
+Exit exit;
+Blank blank;
 LevelUI ui;
 Display universal;
+Display components;
 MainScreen main;
 Player p;
 Minim minim;
