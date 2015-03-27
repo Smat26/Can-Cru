@@ -10,6 +10,7 @@ class Level implements Display {
   PImage bg= loadImage("data/Various/bg3.png");
   PImage[][] pic = new PImage[3][5];
   int change = 1; //for cycling through the theme, Change it to affect the starting theme.
+  PImage config;
   Level() {
 
     imageMode(CORNER);
@@ -30,6 +31,7 @@ class Level implements Display {
         println(i +"  " +j);
       }
     }
+    config  = loadImage("config.png");
   }
   void setTheme() {
     change++;
@@ -103,6 +105,11 @@ class Level implements Display {
     } else {
       text("Click anywhere to continue", width/2, height/2);
     }
+    
+    image(config,width-50,0,50,50);
+    if(menu.temp == -1 || menu.temp == 3){
+    ui.display();
+    }
   }
 
 
@@ -129,6 +136,7 @@ class Level implements Display {
   }
 
   void click() {
+    
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {

@@ -1,4 +1,5 @@
 AudioSystem a;
+LevelUI ui;
 Display universal;
 MainScreen main;
 Player p;
