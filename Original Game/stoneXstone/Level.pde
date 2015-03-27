@@ -129,9 +129,6 @@ class Level implements Display {
   }
 
   void click() {
-
-    p.saveGame();
-
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {
