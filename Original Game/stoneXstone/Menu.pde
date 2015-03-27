@@ -17,6 +17,7 @@ class Menu {
     lvl.loadImages(); //loads images of themes   
      p = new Player();
      a = new AudioSystem("song.mp3");
+         lvl.setTheme();
      //============================================
   }
 

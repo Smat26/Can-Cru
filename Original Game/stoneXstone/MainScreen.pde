@@ -23,6 +23,7 @@ class MainScreen implements Display {
     animatch = loadImage("data/Various/animatch.png");
     imageMode(CORNER);
     background(0);
+
   }
 
   void display() {

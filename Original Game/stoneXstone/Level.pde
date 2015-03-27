@@ -1,15 +1,15 @@
 class Level implements Display {
   ArrayList Stones=new ArrayList();
-  int xdimension=25;
-  int ydimension=14;
-  int NumCols = 2;
+  int xdimension=10;
+  int ydimension=12;
+  int NumCols = 5;
   int curX, curY, target;
   int lv=0; 
   int xGap = 4; //margin of the stones from the left
   boolean playFlag, winFlag;
   PImage bg= loadImage("data/Various/bg3.png");
-  PImage[][] pic = new PImage[2][4];
-  int change = 1; //for cycling through the theme;
+  PImage[][] pic = new PImage[3][5];
+  int change = 1; //for cycling through the theme, Change it to affect the starting theme.
   Level() {
 
     imageMode(CORNER);
@@ -22,8 +22,9 @@ class Level implements Display {
     String k=""; //holds folder name to path
     //the loops fills the 2d array with images
     for (int i = 0; i < pic.length; i++) {
-      if (i == 0) k = "sweet food";
+      if (i == 0) k = "birds";
       if (i == 1) k = "animals vec";
+      if(i==2) k = "fishes";
       for (int j =0; j< pic[i].length; j++) {
         pic[i][j] = loadImage("data/"+k+"/"+(j+1)+".png");
         println(i +"  " +j);
@@ -32,7 +33,7 @@ class Level implements Display {
   }
   void setTheme() {
     change++;
-    if (change>1){ //number is the maximum themes - 1 
+    if (change>2){ //number is the maximum themes - 1 
       change=0;
     }
     for (int i= 0; i<Stones.size (); i++) {
@@ -109,7 +110,7 @@ class Level implements Display {
     //code to check which level is it, and then change rows, columns and colours.
     for (int i =0; i<xdimension; i++) {
       for (int j=0; j< (ydimension); j++) {
-        Stones.add(new Stone(i+xGap, j-ydimension, (int)random(NumCols), stoneSize, Stones));
+        Stones.add(new Stone(i+xGap, j+10-ydimension, (int)random(NumCols), stoneSize, Stones));
       }
     }
   }

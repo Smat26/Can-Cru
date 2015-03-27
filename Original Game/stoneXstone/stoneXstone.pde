@@ -9,7 +9,7 @@ Login login;
 ControlP5 controlP5;
 controlP5.Button b;
 controlP5.Textfield t;
-int stoneSize=25;
+int stoneSize=40;
 void setup() {
    controlP5 = new ControlP5(this);
    minim = new Minim(this);
