@@ -21,8 +21,8 @@ class Menu {
   }
 
   void show() {
-    println("MouseX: "+ mouseX);
-    println("MouseY: "+ mouseY);
+//    println("MouseX: "+ mouseX);
+  //  println("MouseY: "+ mouseY);
   
     universal.display();
     
@@ -64,6 +64,7 @@ class Menu {
     }
     if(temp == 3){
     universal = lvl;
+   
     }
     //======================//
   

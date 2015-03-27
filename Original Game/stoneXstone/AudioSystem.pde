@@ -7,7 +7,6 @@ class AudioSystem{
   AudioSystem(String str){
     player = minim.loadFile(str); 
     player.loop();
-     player.play();
   }
  
 

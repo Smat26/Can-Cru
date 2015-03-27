@@ -40,7 +40,7 @@ class Level implements Display {
   }
 
   void display() {
-
+     
     background(0);
     noStroke();
     if (playFlag) {    
@@ -123,6 +123,7 @@ class Level implements Display {
   }
 
   void click() {
+    p.saveGame();
     setTheme();
     if (playFlag) {
       if (!winFlag) {
