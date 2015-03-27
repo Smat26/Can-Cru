@@ -36,7 +36,7 @@ void controlEvent(ControlEvent theEvent) {
      
 if(theEvent.controller().name()=="                                          Login") {
       p.name = controlP5.get(Textfield.class, "Name").getText();
-      p.searchName();
+      //p.searchName();
       b.hide();
       t.hide();
       menu.temp = 3;

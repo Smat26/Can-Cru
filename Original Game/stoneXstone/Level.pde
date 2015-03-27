@@ -10,7 +10,7 @@ class Level implements Display {
   PImage bg= loadImage("data/Various/bg3.png");
   PImage[][] pic = new PImage[3][5];
   int change = 1; //for cycling through the theme, Change it to affect the starting theme.
-PFont bang = loadFont("data/Various/Bangers-Regular-24.vlw");
+  PFont bang = loadFont("data/Various/Bangers-Regular-24.vlw");
   PImage config;
   PImage panel = loadImage("data/Various/panel.png");
   float y = 0; //This for settings rotation
@@ -52,7 +52,7 @@ PFont bang = loadFont("data/Various/Bangers-Regular-24.vlw");
   void display() {
 
     image(bg, 0, 0);
-    image(panel,5,475);
+    image(panel, 5, 475);
     noStroke();
     if (playFlag) {    
       curX=((int)(mouseX/stoneSize));
@@ -97,9 +97,9 @@ PFont bang = loadFont("data/Various/Bangers-Regular-24.vlw");
       stroke(255);
       strokeWeight(3);  
       rect(curX*stoneSize, curY*stoneSize, stoneSize, stoneSize);
-      line(0, 361, width, 361);
+      //line(0, 361, width, 361);
       fill(255);
-      textFont(bang,24);
+      textFont(bang, 24);
       text("Score:", 80, 550);
       text(p.score, 170, 550);
       text("Level", 280, 550);
@@ -157,7 +157,7 @@ PFont bang = loadFont("data/Various/Bangers-Regular-24.vlw");
           Stone st = (Stone)Stones.get(target);
           wrongclick = st.checkSame(target);
         }
-        if(!wrongclick){
+        if (!wrongclick) {
           strike ++;
           println("STRIKE!!");
         }

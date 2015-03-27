@@ -1,27 +1,41 @@
-class Leaderboard implements Display{
-  int score[] = new int[10];
-  String name[] = new String[10];
-  
-  PImage lead;
-  void initialize(){
-  p.loadGame();
-  for(int j = 0; j<score.length;j++){
-  for(int i=1;i<p.load.length; i +=2){
-  if(score[j]<Integer.parseInt(p.load[i])){
-  score[j] = Integer.parseInt(p.load[i]);
-  name[j] = p.load[i-1];
+class Leaderboard implements Display {
+  String[] leaderboard = new String[100];
+  Boolean added=false;
+
+  void loadLeader() {
+    leaderboard = loadStrings("/data/text/Leader.txt");
+    println("leaderboard loaded");
   }
-    
-  }  }
-  
+  void saveleader() {
+    saveStrings("/data/text/Leader.txt", leaderboard);
+    println("leaderboard saved");
   }
-  void display(){
-  for(int i=0; i<score.length; i++){
-  
-    text(i+".  "+name[i]+ "   "+score[i], 200, 100);
-  
+  void addLeader() {
+    for (int i =0; i <leaderboard.length; i+=2) {
+      if (leaderboard[i].equals(p.name)) {
+        if (p.score> Integer.parseInt(leaderboard[i+1])) {
+          leaderboard[i+1]=""+ p.score;
+          println("New Score is higher");
+        } else {
+          println("Previous Score was higher");
+        }
+        added = true;
+      }
+    }
+    if (!added) {
+      for (int i =0; i<leaderboard.length; i+=2) {
+        if (leaderboard[i]==null) {
+          leaderboard[i]= p.name;
+          leaderboard[i+1] =""+ p.score;
+          println("New Entry added");
+        }
+      }
+    }
+    added=false;
   }
 
-  }  
 
+  void display() {
+  }
 }
+
