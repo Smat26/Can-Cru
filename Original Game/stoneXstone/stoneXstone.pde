@@ -21,7 +21,11 @@ void setup() {
 
 }
 void draw() {
+
    menu.show();
+   //for custom cursor
+  //image(menu.cursor,mouseX,mouseY); 
+   
 }
 void mouseClicked() {
  lvl.click();

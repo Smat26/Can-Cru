@@ -35,6 +35,8 @@ class Stone {
     }
     return same;
   }
+  
+
 
 
   void printIcon(int c) {

@@ -4,12 +4,15 @@ class Menu {
   
   int temp = 0;
  int tempPop = -1; 
+ PImage cursor;
 
   Menu() {
     //======================Startup===========================/    
     size(800,700); 
     noStroke(); 
     smooth();
+    //noCursor();
+    cursor = loadImage("/data/Various/whitecursor.png");
     lvl = new Level();
     main = new MainScreen();
     login = new Login();
@@ -28,8 +31,9 @@ class Menu {
   }
 
   void show() {
-    println("MouseX: "+ mouseX);
-    println("MouseY: "+ mouseY);
+    //The line below messed up the console output :(
+    //println("MouseX: "+ mouseX);
+    //println("MouseY: "+ mouseY);
   
     universal.display();
     components.display();
@@ -40,7 +44,7 @@ class Menu {
   
   boolean mouseCheck(float x1, float y1, float x2, float y2) {
     if (mouseX >= x1 && mouseX <= x2 && mouseY>=y1 && mouseY<=y2) {
-      println("true");
+      //println("true");
       return true;
     }
     return false;

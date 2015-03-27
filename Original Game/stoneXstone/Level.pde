@@ -11,7 +11,10 @@ class Level implements Display {
   PImage[][] pic = new PImage[3][5];
   int change = 1; //for cycling through the theme, Change it to affect the starting theme.
   PImage config;
+  PImage panel = loadImage("data/Various/panel.png");
   float y = 0; //This for settings rotation
+  Boolean wrongclick; //to check if click is wrong
+  int strike=0; // number of wrong clicks
   Level() {
 
     imageMode(CORNER);
@@ -26,17 +29,17 @@ class Level implements Display {
     for (int i = 0; i < pic.length; i++) {
       if (i == 0) k = "birds";
       if (i == 1) k = "animals vec";
-      if(i==2) k = "fishes";
+      if (i==2) k = "fishes";
       for (int j =0; j< pic[i].length; j++) {
         pic[i][j] = loadImage("data/"+k+"/"+(j+1)+".png");
         println(i +"  " +j);
       }
     }
-    config  = loadImage("config.png");
+    config  = loadImage("configcircle.png");
   }
   void setTheme() {
     change++;
-    if (change>2){ //number is the maximum themes - 1 
+    if (change>2) { //number is the maximum themes - 1 
       change=0;
     }
     for (int i= 0; i<Stones.size (); i++) {
@@ -46,9 +49,9 @@ class Level implements Display {
   }
 
   void display() {
-     
-    background(0);
-    image(bg,0,0);
+
+    image(bg, 0, 0);
+    image(panel,5,475);
     noStroke();
     if (playFlag) {    
       curX=((int)(mouseX/stoneSize));
@@ -106,18 +109,18 @@ class Level implements Display {
     } else {
       text("Click anywhere to continue", width/2, height/2);
     }
-    if(menu.mouseCheck(width-50, 0, width, 100)){
+    if (menu.mouseCheck(width-50, 0, width, 100)) {
 
       //Paste the rotation code here
-      
-      image(config,width-50,0,50,50);
-      
-          }else{
+
+
+      image(config, width-50, 0, 50, 50);
+    } else {
       y=0;
-    image(config,width-50,0,50,50);  // Do not remove this or it will cause a bug
+      image(config, width-50, 0, 50, 50);  // Do not remove this or it will cause a bug
     }
-    if(menu.temp == -1 || menu.temp == 3){
-    ui.display();
+    if (menu.temp == -1 || menu.temp == 3) {
+      ui.display();
     }
   }
 
@@ -145,12 +148,16 @@ class Level implements Display {
   }
 
   void click() {
-    
+
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {
           Stone st = (Stone)Stones.get(target);
-          st.checkSame(target);
+          wrongclick = st.checkSame(target);
+        }
+        if(!wrongclick){
+          strike ++;
+          println("STRIKE!!");
         }
       } else {
         if (lv<5) {
@@ -162,7 +169,6 @@ class Level implements Display {
     } else {
       playFlag=true;
     }
-    //code to check if one stone remain.
   }
 }
 
