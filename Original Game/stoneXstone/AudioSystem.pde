@@ -14,6 +14,9 @@ class AudioSystem{
   void play(){
   player.play();    
   }
+    void stopIt(){
+  player.pause();    
+  }
 
 
 }
