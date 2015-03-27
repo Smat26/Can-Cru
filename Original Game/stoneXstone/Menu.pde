@@ -15,8 +15,6 @@ class Menu {
     cursor = loadImage("/data/Various/whitecursor.png");
     lvl = new Level();
     main = new MainScreen();
-    login = new Login();
-    login.startup();
     universal = main;
     lvl.loadImages(); //loads images of themes   
     exit = new Exit();
@@ -54,11 +52,11 @@ class Menu {
 // This function determines the button which is clicked and dynamically displays the appropriate screen
   void clickEvent(){
   if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
-          temp = 1;
+          temp = 3;
     }
   if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp == 0){
     
-          temp = 1;
+          temp = 3;
     }
   if (mouseCheck(width-50, 0, width, 100) && (temp == 3 || temp == -1)){
           if(temp == 3){
@@ -76,10 +74,6 @@ class Menu {
   //=========================//  
     if(temp == 0){
     universal = main;   
-    }
-    if(temp == 1){
-    login.initialize();
-    universal = login;
     }
     if(temp == 3 || temp == -1){
     universal = lvl;
