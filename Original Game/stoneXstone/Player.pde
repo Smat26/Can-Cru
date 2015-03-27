@@ -3,13 +3,43 @@ class Player {
   String name = "Anonymous";
 
   int score;
-  String []load;
+  ArrayList state =new ArrayList();
+  String[] x = new String[lvl.Stones.size()];
+  String[] y = new String[lvl.Stones.size()];
+  String[] c = new String[lvl.Stones.size()];
+  String[] sz = new String[lvl.Stones.size()];
   String [] list;
-  int x;
 
 
- 
+
   void saveGameState() {
+    state = lvl.Stones;
+    for (int i= 0; i<state.size (); i++) {
+      Stone st = (Stone)state.get(i);
+      x[i] =Integer.toString(st.x);
+      y[i]= Integer.toString(st.y);
+      c[i]= Integer.toString(st.c);
+      sz[i]=Integer.toString(st.sz);
+    }
+    saveStrings("/data/text/x.txt", x);
+    saveStrings("/data/text/y.txt", y);
+    saveStrings("/data/text/c.txt", c);
+    saveStrings("/data/text/sz.txt", sz);
+  }
+  void loadGameState() {
+    x= loadStrings("/data/text/x.txt"); 
+    y= loadStrings("/data/text/y.txt");
+    c= loadStrings("/data/text/c.txt");
+    sz= loadStrings("/data/text/sz.txt");
+    state = null;
+    //
+    for (int i=0; i< x.length; i++) {
+      if (x[i] == null) {
+        break;
+      }
+      state.add(new Stone(Integer.parseInt(x[i]), Integer.parseInt(y[i]), Integer.parseInt(c[i]), Integer.parseInt(sz[i]), state));
+    }
+    lvl.Stones = state;
   }
 
 

@@ -1,7 +1,7 @@
 class Leaderboard implements Display {
   String[] leaderboard = new String[100];
   Boolean added=false;
-
+  
   void loadLeader() {
     leaderboard = loadStrings("/data/text/Leader.txt");
     println("leaderboard loaded");
