@@ -56,7 +56,9 @@ class Menu {
   
 // This function determines the button which is clicked and dynamically displays the appropriate screen
   void clickEvent(){
-  if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
+  if(checkPop()){return;}
+    
+    if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
    lvl.replay();
           temp = 3;
     }
@@ -112,5 +114,18 @@ class Menu {
     
     //======================//
   
+  }
+  
+  boolean checkPop(){
+  if(tempPop != -1){
+    if(mouseCheck(240, 360, 330, 450)){
+    exit();
+    }else{
+      tempPop = -1;
+      components = blank;
+    
+    }return true;  
+}
+  return false;
   }
 }
