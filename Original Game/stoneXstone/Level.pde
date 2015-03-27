@@ -11,6 +11,7 @@ class Level implements Display {
   PImage[][] pic = new PImage[3][5];
   int change = 1; //for cycling through the theme, Change it to affect the starting theme.
   PImage config;
+  float y = 0; //This for settings rotation
   Level() {
 
     imageMode(CORNER);
@@ -105,8 +106,16 @@ class Level implements Display {
     } else {
       text("Click anywhere to continue", width/2, height/2);
     }
-    
-    image(config,width-50,0,50,50);
+    if(menu.mouseCheck(width-50, 0, width, 100)){
+
+      //Paste the rotation code here
+      
+      image(config,width-50,0,50,50);
+      
+          }else{
+      y=0;
+    image(config,width-50,0,50,50);  // Do not remove this or it will cause a bug
+    }
     if(menu.temp == -1 || menu.temp == 3){
     ui.display();
     }
