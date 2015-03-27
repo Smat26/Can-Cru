@@ -172,7 +172,7 @@ class Level implements Display {
 
     for (int i =0; i<xdimension; i++) {
       for (int j=0; j< (ydimension); j++) {
-        Stones.add(new Stone(i+xGap, j+10-ydimension, (int)random(NumCols), stoneSize, Stones));
+        Stones.add(new Stone(i+xGap, j+10-ydimension, (int)random(NumCols), stoneSize));
       }
     }
   }

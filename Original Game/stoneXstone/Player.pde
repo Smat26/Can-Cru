@@ -10,18 +10,23 @@ class Player {
   String[] sz = new String[140];
   String [] list;
   String[] a= new String[2];
+  int size;
 
 
 
   void saveGameState() {
     state = lvl.Stones;
-    for (int i= 0; i<state.size (); i++) {
+    
+    
+
+    for (int i= 0; i<state.size(); i++) {
       Stone st = (Stone)state.get(i);
       x[i] =Integer.toString(st.x);
       y[i]= Integer.toString(st.y);
       c[i]= Integer.toString(st.c);
       sz[i]=Integer.toString(st.sz);
     }
+    
     saveStrings("/data/text/x.txt", x);
     saveStrings("/data/text/y.txt", y);
     saveStrings("/data/text/c.txt", c);
@@ -29,6 +34,18 @@ class Player {
     String[] a ={Integer.toString(score), Integer.toString(lvl.lv)};
     saveStrings("/data/text/score.txt",a);
     println("SAVED!!");
+    
+   
+   
+   //making values null
+        for (int i= 0; i<state.size (); i++) {
+      x[i] =null;
+      y[i]= null;
+      c[i]= null;
+      sz[i]= null;
+      
+    }
+    state = null;
   }
   void loadGameState() {
     x= loadStrings("/data/text/x.txt"); 
@@ -41,10 +58,12 @@ class Player {
     //state = null;
     //
     for (int i=0; i< x.length; i++) {
-      if (x[i].equals("")) {
+      if (x[i].equals("null")) {
+        
         break;
       }
-      state.add(new Stone(Integer.parseInt(x[i]), Integer.parseInt(y[i]), Integer.parseInt(c[i]), Integer.parseInt(sz[i]), state));
+      println(i);
+      state.add(new Stone(Integer.parseInt(x[i]), Integer.parseInt(y[i]), Integer.parseInt(c[i]), Integer.parseInt(sz[i])));
     }
     lvl.Stones = state;
     println("LOADED!!");

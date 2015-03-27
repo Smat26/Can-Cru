@@ -27,7 +27,7 @@ class Menu {
      a.loopIt();
          lvl.setTheme();
 
-         //p.loadGameState();
+         p.loadGameState();
 
      //============================================
   }
