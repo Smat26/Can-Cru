@@ -16,7 +16,7 @@ class Stone {
 
   void display() {
     printIcon(c);
-    } 
+  } 
 
 
   boolean checkSame(int id) {
@@ -39,17 +39,7 @@ class Stone {
 
   void printIcon(int c) {
 
-    switch(c) {
-    case 0: 
-      image(lvl.pic[theme][c], x*sz, y*sz, stoneSize, stoneSize);
-      break;
-    case 1: 
-      image(lvl.pic[theme][c], x*sz, y*sz, stoneSize, stoneSize);
-      break;
-    case 2: 
-      image(lvl.pic[theme][c], x*sz, y*sz, stoneSize, stoneSize);
-      break;
-    }
+    image(lvl.pic[theme][c], x*sz, y*sz, stoneSize, stoneSize);
   }
 
   void setTheme(int t) {
