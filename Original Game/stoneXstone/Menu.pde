@@ -25,6 +25,7 @@ class Menu {
      a = new AudioSystem("song.mp3");
      a.loopIt();
          lvl.setTheme();
+         p.loadGameState();
      //============================================
   }
 
@@ -91,6 +92,7 @@ class Menu {
     }
     if(temp == 3 || temp == -1){
     universal = lvl;
+    lvl.click();
     }
     if(tempPop == 1){
     components = exit;

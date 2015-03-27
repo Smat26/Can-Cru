@@ -24,7 +24,7 @@ void draw() {
    
 }
 void mouseClicked() {
- lvl.click();
+ 
   menu.clickEvent();
 }
 
