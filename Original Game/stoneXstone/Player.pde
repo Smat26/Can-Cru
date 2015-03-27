@@ -25,21 +25,23 @@ class Player {
     saveStrings("/data/text/y.txt", y);
     saveStrings("/data/text/c.txt", c);
     saveStrings("/data/text/sz.txt", sz);
+    println("SAVED!!");
   }
   void loadGameState() {
     x= loadStrings("/data/text/x.txt"); 
     y= loadStrings("/data/text/y.txt");
     c= loadStrings("/data/text/c.txt");
     sz= loadStrings("/data/text/sz.txt");
-    state = null;
+    //state = null;
     //
     for (int i=0; i< x.length; i++) {
-      if (x[i] == null) {
+      if (x[i].equals("")) {
         break;
       }
       state.add(new Stone(Integer.parseInt(x[i]), Integer.parseInt(y[i]), Integer.parseInt(c[i]), Integer.parseInt(sz[i]), state));
     }
     lvl.Stones = state;
+    println("LOADED!!");
   }
 
 

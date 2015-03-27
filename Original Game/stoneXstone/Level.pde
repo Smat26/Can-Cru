@@ -150,17 +150,17 @@ class Level implements Display {
   }
 
   void click() {
-
+p.saveGameState();
     if (playFlag) {
       if (!winFlag) {
         if (target != -1) {
           Stone st = (Stone)Stones.get(target);
           wrongclick = st.checkSame(target);
         }
-        if (!wrongclick) {
+       /* if (!wrongclick) {
           strike ++;
           println("STRIKE!!");
-        }
+        }*/
       } else {
         if (lv<5) {
           lv++;
