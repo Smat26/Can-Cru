@@ -5,6 +5,7 @@ class Menu {
   int temp = 0;
  int tempPop = -1; 
  PImage cursor;
+ int audio = 1;
 
   Menu() {
     //======================Startup===========================/    
@@ -25,14 +26,14 @@ class Menu {
      a = new AudioSystem("song.mp3");
      a.loopIt();
          lvl.setTheme();
-         p.loadGameState();
+        // p.loadGameState();
      //============================================
   }
 
   void show() {
     //The line below messed up the console output :(
-    //println("MouseX: "+ mouseX);
-    //println("MouseY: "+ mouseY);
+    println("MouseX: "+ mouseX);
+    println("MouseY: "+ mouseY);
   
     universal.display();
     components.display();
@@ -56,6 +57,7 @@ class Menu {
     if(popCheck()){  return;}  //Do not remove this, it blocks the behind screen for clicking when a popup is open
     
   if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
+   //lvl.replay();
           temp = 3;
     }
   if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp == 0){
@@ -71,6 +73,17 @@ class Menu {
           else{
           temp = 3;
           }
+    }
+    
+    if (mouseCheck(110, 600, 176, 670) && (temp == -1)){
+    if(audio==1){
+    a.stopIt();
+    audio=0;
+    }
+    else{
+    a.loopIt();
+    audio=1;
+    }
     }
     //===================================================//
   
