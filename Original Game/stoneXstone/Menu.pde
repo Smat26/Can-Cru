@@ -30,6 +30,7 @@ class Menu {
          lvl.setTheme();
 
          p.loadGameState();
+         l.loadLeader();
 
      //============================================
   }
@@ -82,7 +83,7 @@ class Menu {
     if(mouseCheck(375, 600, 445, 650) && temp == 5){
       lvl.lv = 0;
       temp = 0;
-      l.loadLeader();
+      
       l.addLeader();
       l.saveLeader();
       return;
