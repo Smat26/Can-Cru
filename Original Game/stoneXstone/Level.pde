@@ -1,4 +1,6 @@
 class Level implements Display {
+  PImage star;
+  int startemp;
   ArrayList Stones=new ArrayList();
   int xdimension=14;
   int ydimension=10;
@@ -84,9 +86,15 @@ class Level implements Display {
   }
 
   void display() {
-
+   
     image(bg, 0, 0);
     image(panel, 5, 475);
+    startemp = abs(5-strike%5);
+    if(startemp>5){
+    startemp = 5;
+    }
+    star = loadImage(startemp+".png");
+    image(star,400,600);
     noStroke();
     if (playFlag) {    
       curX=((int)(mouseX/stoneSize));

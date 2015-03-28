@@ -11,6 +11,10 @@ class LevelUI implements Display {
     rect(0, 0, 200, height);
     fill(255);
     text("Menu",75,50);
+    if(menu.mouseCheck(75, 250, 200, 270)){fill(255,0,0);}
+    text("Restart",75,250);
+    text("Back",75,290);
+    text("Exit",75,330);
     if(menu.audio == 1)
     image(sound,100,height - 100);
     else

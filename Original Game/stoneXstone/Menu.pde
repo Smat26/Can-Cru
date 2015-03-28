@@ -61,7 +61,8 @@ class Menu {
     
     if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
    lvl.replay();
-   
+   lvl.lv = 0;
+   p.score = 0;
           temp = 3;
     }
   if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp == 0){
@@ -75,9 +76,10 @@ class Menu {
           else{
           temp = 3;
           }
+          lvl.strike--;
     }
 
-    if(mouseCheck(395, 600, 465, 650) && temp == 5){
+    if(mouseCheck(375, 600, 445, 650) && temp == 5){
       lvl.lv = 0;
       temp = 0;
       l.loadLeader();
@@ -85,8 +87,8 @@ class Menu {
       l.saveLeader();
       return;
     }
-    
-    if (mouseCheck(110, 600, 176, 670) && (temp == -1)){
+    if(temp == -1){
+    if (mouseCheck(110, 600, 176, 670)){
     if(audio==1){
     a.stopIt();
     audio=0;
@@ -95,7 +97,12 @@ class Menu {
     a.loopIt();
     audio=1;
     }
+    if(mouseCheck(75, 250, 200, 270)){
+      
+      println("clicked");
+      temp = 0;
     }
+    }}
     //===================================================//
   
   
