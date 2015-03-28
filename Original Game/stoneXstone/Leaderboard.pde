@@ -6,7 +6,7 @@ class Leaderboard implements Display {
     leaderboard = loadStrings("/data/text/Leader.txt");
     println("leaderboard loaded");
   }
-  void saveleader() {
+  void saveLeader() {
     saveStrings("/data/text/Leader.txt", leaderboard);
     println("leaderboard saved");
   }

@@ -11,7 +11,7 @@ Player p;
 Minim minim;
 Menu menu;
 Level lvl;
-
+Leaderboard l;
 int stoneSize=50;
 void setup() {
    minim = new Minim(this);

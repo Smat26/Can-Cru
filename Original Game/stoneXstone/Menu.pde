@@ -15,6 +15,7 @@ class Menu {
     noCursor();
     cursor = loadImage("/data/Various/whitecursor.png");
     lvl = new Level();
+    l = new Leaderboard();
     over = new GameOver();
     main = new MainScreen();
     universal = main;
@@ -35,8 +36,8 @@ class Menu {
 
   void show() {
     //The line below messed up the console output :(
-    println("MouseX: "+ mouseX);
-    println("MouseY: "+ mouseY);
+   // println("MouseX: "+ mouseX);
+  //  println("MouseY: "+ mouseY);
   
     universal.display();
     components.display();
@@ -76,9 +77,12 @@ class Menu {
           }
     }
 
-    if(mouseCheck(405, 600, 475, 650) && temp == 5){
+    if(mouseCheck(395, 600, 465, 650) && temp == 5){
       lvl.lv = 0;
       temp = 0;
+      l.loadLeader();
+      l.addLeader();
+      l.saveLeader();
       return;
     }
     
