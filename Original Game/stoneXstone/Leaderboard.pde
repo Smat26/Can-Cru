@@ -39,31 +39,41 @@ class Leaderboard implements Display {
       }
     }
     added=false;
-    //just added code bwlow to check
-    // scoreSorter();
+
   }
-  //code below not working
-  void scoreSorter() {
-    String x;
-    String y;
-    for (int i=1; i<leaderboard.length; i+=2) {
-      for (int j=1; j < leaderboard.length-1; j+=2 ) {
-        if (leaderboard[j+2].equals("null")) {
+
+  void orderLeader() {
+    String[] num = leaderboard;
+    String hold;
+    boolean flag = false;
+    do {
+      flag = false;
+      for ( int j=1; j < num.length -2; j+=2 )
+      {
+        if (num[j+2].equals("null")) {
+
           break;
         }
-        if (Integer.parseInt(leaderboard[j]) < Integer.parseInt(leaderboard[j+2])) {
-          x=leaderboard[j];
-          y = leaderboard[j-1];
-          leaderboard[j]=leaderboard[j+2];
-          leaderboard[j-1]= leaderboard[j+1];
-          ;
-          leaderboard[j+2]=x;
-          leaderboard[j+1]= y;
-        }
-        if (leaderboard[j].equals(leaderboard[j+2])) {
-          leaderboard[j]="0";
+        
+        if ( Integer.parseInt(num[ j ]) < Integer.parseInt(num[j+2]) )   // change to > for ascending sort
+        {
+          //swapping score
+          hold = num[ j ];                //swap elements
+          num[ j ] = num[ j+2 ];
+          num[ j+2 ] = hold;
+
+          //swapping names:
+          hold = num[j-1];
+          num[j-1] = num[j+1];
+          num[j+1] = hold;
+          flag = true;
+            // println("swap");
         }
       }
+    }
+    while (flag);
+    for (int i=0; i<num.length; i++) {
+      println(num[i]);
     }
   }
 
