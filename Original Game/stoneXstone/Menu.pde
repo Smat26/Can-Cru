@@ -60,17 +60,17 @@ class Menu {
   void clickEvent(){
   if(checkPop()){return;}
     
-    if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){
+    if (mouseCheck(main.allx, 50+main.d, main.allx2, 100+main.d) && temp == 0){ //start button
    lvl.replay();
    lvl.lv = 0;
    p.score = 0;
           temp = 3;
     }
-  if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp == 0){
+  if (mouseCheck(main.allx, 130+main.d, main.allx2, 190+main.d) && temp == 0){//load button
     
           temp = 3;
     }
-  if (mouseCheck(width-50, 0, width, 100) && (temp == 3 || temp == -1)){
+  if (mouseCheck(width-50, 0, width, 100) && (temp == 3 || temp == -1)){ //to avoid double clicking??
           if(temp == 3){
           temp = -1;
           }
