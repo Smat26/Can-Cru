@@ -196,6 +196,7 @@ class Level implements Display {
     lv++;
     deleteStone();
     setStone();
+    setTheme();
     //code for level to increment
   }
 
@@ -219,6 +220,7 @@ class Level implements Display {
       } else {
         if (lv<5) {
           lv++;
+          
         }
         winFlag=false;
         replay();

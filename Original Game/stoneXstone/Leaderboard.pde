@@ -2,6 +2,10 @@ class Leaderboard implements Display {
   String[] leaderboard = new String[100];
   String[] tmp;
   Boolean added=false;
+  String[] num;
+
+  PImage pic= loadImage("/data/Various/nightbg.png");
+  PImage back = loadImage("/data/buttons/back/back.png");
 
   void loadLeader() {
     tmp = loadStrings("/data/text/Leader.txt");
@@ -39,11 +43,13 @@ class Leaderboard implements Display {
       }
     }
     added=false;
-
   }
 
   void orderLeader() {
-    String[] num = leaderboard;
+    num = leaderboard;
+    for (int i=0; i<num.length; i++) {
+      println(num[i]);
+    }
     String hold;
     boolean flag = false;
     do {
@@ -54,7 +60,7 @@ class Leaderboard implements Display {
 
           break;
         }
-        
+
         if ( Integer.parseInt(num[ j ]) < Integer.parseInt(num[j+2]) )   // change to > for ascending sort
         {
           //swapping score
@@ -67,7 +73,7 @@ class Leaderboard implements Display {
           num[j-1] = num[j+1];
           num[j+1] = hold;
           flag = true;
-            // println("swap");
+          println("swap");
         }
       }
     }
@@ -79,18 +85,32 @@ class Leaderboard implements Display {
 
 
   void display() {
-    textSize((width+height)/40);
-    fill(#ED4158);
-    text("1) " + leaderboard[0], width/6, height/3.2);
-    text("2) " + leaderboard[1], width/6, height/2.35);
-    text("3) " + leaderboard[2], width/6, height-height/2.15);
-    text("4) " + leaderboard[3], width/6, height-height/2.75);
-    text("5) " + leaderboard[4], width/6, height-height/4);
-    text("6) " + leaderboard[5], width-width/2.2, height/3.2);
-    text("7) " + leaderboard[6], width-width/2.2, height/2.35);
-    text("8) " + leaderboard[7], width-width/2.2, height-height/2.15);
-    text("9) " + leaderboard[8], width-width/2.2, height-height/2.75);
-    text("10) " + leaderboard[9], width-width/2.2, height-height/4);
+    orderLeader();
+    image(pic, 0, 0);
+    
+    image(back, 320, 600);
+    textSize((width+height)/50);
+    fill(255);
+    text("1) " + num[0], width/4, 50);
+    text(num[1], width/1.5, 50);
+    text("2) " + num[2], width/4, 100);
+    text(num[3], width/1.5, 100);
+    text("3) " + num[4], width/4, 150);
+    text(num[5], width/1.5, 150);
+    text("4) " + num[6], width/4, 200);
+    text(num[7], width/1.5, 200);
+    text("5) " + num[8], width/4, 250);
+    text(num[9], width/1.5, 250);
+    text("6) " + num[10], width/4, 300);
+    text(num[11], width/1.5, 300);
+    text("7) " + num[12], width/4, 350);
+    text(num[13], width/1.5, 350);
+    text("8) " + num[14], width/4, 400);
+    text(num[15], width/1.5, 400);
+        text("9) " + num[16], width/4, 450);
+    text(num[17], width/1.5, 450);
+    text("10) " + num[18], width/4, 500);
+    text(num[19], width/1.5, 500);
   }
 }
 
