@@ -9,7 +9,6 @@ First Read the official question on LMS, before proceeding.
 
 Our End Product should be:
 1. Totally complete in light of the questions asked and requirments set.
-
 2. Professional.
 
 
@@ -53,9 +52,4 @@ Some Crazy Shashkay
 -Multiplayer facility
 -Give gifts to friends
 -World scoreboard
-
-====================
-Some Shit to teach Mustafa Github
-============================
-
 
